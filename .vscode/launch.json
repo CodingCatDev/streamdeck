@@ -10,7 +10,7 @@
 			"request": "attach",
 			"processId": "${command:PickProcess}",
 			"outFiles": [
-				"${workspaceFolder}/plugins/**/bin/**/*.js"
+				"${workspaceFolder}/dev.codingcat.streamdeck.sdPlugin/bin/**/*.js"
 			],
 			"resolveSourceMapLocations": [
 				"${workspaceFolder}/**"

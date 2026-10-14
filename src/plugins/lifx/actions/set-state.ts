@@ -1,6 +1,6 @@
 import { action, type KeyDownEvent } from "@elgato/streamdeck";
-import { lifxClient } from "../lifx/client";
-import type { LifxStatePayload } from "../lifx/types";
+import { lifxClient } from "../client";
+import type { LifxStatePayload } from "../types";
 import { BaseLifxAction } from "./base-lifx-action";
 
 export type SetStateSettings = {
@@ -22,7 +22,7 @@ export type SetStateSettings = {
  * Sets comprehensive LIFX light state (`PUT /v1/lights/:selector/state`):
  * power, color (hex picker, Kelvin temperature, or LIFX color string), brightness, infrared, duration, and fast mode.
  */
-@action({ UUID: "dev.codingcat.streamdeck-lifx.set-state" })
+@action({ UUID: "dev.codingcat.streamdeck.lifx-set-state" })
 export class SetStateAction extends BaseLifxAction<SetStateSettings> {
 	override async onKeyDown(ev: KeyDownEvent<SetStateSettings>): Promise<void> {
 		const hasToken = await this.ensureClientReady();

@@ -1,6 +1,6 @@
 import { action, type KeyDownEvent } from "@elgato/streamdeck";
-import { lifxClient } from "../lifx/client";
-import type { LifxActivateScenePayload } from "../lifx/types";
+import { lifxClient } from "../client";
+import type { LifxActivateScenePayload } from "../types";
 import { BaseLifxAction } from "./base-lifx-action";
 
 export type ActivateSceneSettings = {
@@ -15,7 +15,7 @@ export type ActivateSceneSettings = {
 /**
  * Activates a saved LIFX Cloud scene (`PUT /v1/scenes/scene_id::scene_uuid/activate`).
  */
-@action({ UUID: "dev.codingcat.streamdeck-lifx.activate-scene" })
+@action({ UUID: "dev.codingcat.streamdeck.lifx-activate-scene" })
 export class ActivateSceneAction extends BaseLifxAction<ActivateSceneSettings> {
 	override async onKeyDown(ev: KeyDownEvent<ActivateSceneSettings>): Promise<void> {
 		const hasToken = await this.ensureClientReady();

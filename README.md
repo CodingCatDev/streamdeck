@@ -1,18 +1,20 @@
-# CodingCat.dev Stream Deck Plugins
+# CodingCat.dev Stream Deck Plugin
 
-Official monorepo for **CodingCat.dev** Elgato Stream Deck plugins, built with Node.js 20, TypeScript, `@elgato/streamdeck` v2, and `sdpi-components` v4.
+Official **CodingCat.dev** Elgato Stream Deck plugin (`dev.codingcat.streamdeck`), built with Node.js 20, TypeScript, `@elgato/streamdeck` v2, and `sdpi-components` v4.
+
+All integrations live under `src/plugins/<integration>` and appear under the **CodingCat.dev** category in the Elgato Stream Deck app.
 
 ---
 
-## 📂 Plugin Directory
+## 📂 Integrations Directory
 
-| Plugin | Directory | UUID | Controllers | Description |
+| Integration | Directory | Action Prefix | Controllers | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| **[CodingCat.dev LIFX](./plugins/lifx/README.md)** | [`plugins/lifx`](./plugins/lifx) | `dev.codingcat.streamdeck-lifx` | Keypad, Encoder (Stream Deck+ Dials) | Control LIFX smart lights, groups, locations, cloud scenes, color/Kelvin state, relative dial adjustments, state cycling, effects, and HEV Clean via the LIFX HTTP Cloud API v1. |
+| **[LIFX](./src/plugins/lifx/README.md)** | [`src/plugins/lifx`](./src/plugins/lifx) | `dev.codingcat.streamdeck.lifx-*` | Keypad, Encoder (Stream Deck+ Dials) | Control LIFX smart lights, groups, locations, cloud scenes, color/Kelvin state, relative dial adjustments, state cycling, effects, and HEV Clean via the LIFX HTTP Cloud API v1. |
 
 ---
 
-## 🚀 Quick Start (Workspace Development)
+## 🚀 Quick Start (Local Development)
 
 ### Prerequisites
 - **Node.js** `>= 20`
@@ -30,40 +32,34 @@ Required once on your machine so Stream Deck allows local plugin linking and hot
 npx streamdeck dev
 ```
 
-### 3. Build, Typecheck, Validate, and Package All Plugins
+### 3. Build, Link, and Watch Locally
 ```bash
-# Typecheck all plugins
+# Typecheck TypeScript
 pnpm run typecheck
 
-# Build all plugins
+# Build dev.codingcat.streamdeck.sdPlugin/bin/plugin.js
 pnpm run build
 
-# Validate all .sdPlugin bundles with @elgato/cli
+# Validate the .sdPlugin bundle with @elgato/cli
 pnpm run validate
 
-# Package all plugins into .streamDeckPlugin installers
+# Link into local Stream Deck app and restart the plugin
+pnpm run link
+
+# Watch for changes and automatically restart the plugin
+pnpm run watch
+```
+
+### 4. Package for Elgato Marketplace
+```bash
+# Builds and packages dev.codingcat.streamdeck.streamDeckPlugin
 pnpm run pack
 ```
 
 ---
 
-## 🛠️ Working on an Individual Plugin
+## ➕ Adding a New Integration
 
-### LIFX (`plugins/lifx`)
-Read the full action directory and setup guide in **[`plugins/lifx/README.md`](./plugins/lifx/README.md)**.
-
-```bash
-# Link the LIFX plugin into your local Stream Deck app and restart it
-pnpm run lifx:link
-
-# Run Rollup in watch mode and automatically restart the plugin on changes
-pnpm run lifx:watch
-```
-
----
-
-## ➕ Adding a New Plugin
-
-1. Create a new folder under `plugins/<name>` with its own `package.json`, `tsconfig.json`, `rollup.config.mjs`, `src/plugin.ts`, and `dev.codingcat.streamdeck-<name>.sdPlugin/`.
-2. Add a `README.md` inside `plugins/<name>/README.md` documenting its setup and actions.
-3. Add an entry to the **Plugin Directory** table above.
+1. Create a new folder under `src/plugins/<name>` with its client, types, `actions/`, and `README.md`.
+2. Register the new actions in [`src/plugin.ts`](./src/plugin.ts) and add their action definitions to [`dev.codingcat.streamdeck.sdPlugin/manifest.json`](./dev.codingcat.streamdeck.sdPlugin/manifest.json).
+3. Add a link to `src/plugins/<name>/README.md` in the **Integrations Directory** table above.

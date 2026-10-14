@@ -9,6 +9,7 @@
 			"Icon": "imgs/actions/lifx/icon",
 			"Tooltip": "Toggle power or turn LIFX lights, groups, or locations On/Off.",
 			"PropertyInspectorPath": "ui/toggle-power.html",
+			"DisableAutomaticStates": true,
 			"Controllers": [
 				"Keypad"
 			],
@@ -68,12 +69,17 @@
 			"Name": "LIFX: Activate Scene",
 			"UUID": "dev.codingcat.streamdeck.lifx-activate-scene",
 			"Icon": "imgs/actions/lifx/icon",
-			"Tooltip": "Activate a saved LIFX Cloud scene.",
+			"Tooltip": "Activate or toggle one or more saved LIFX Cloud scenes On/Off.",
 			"PropertyInspectorPath": "ui/activate-scene.html",
+			"DisableAutomaticStates": true,
 			"Controllers": [
 				"Keypad"
 			],
 			"States": [
+				{
+					"Image": "imgs/actions/lifx/key",
+					"TitleAlignment": "bottom"
+				},
 				{
 					"Image": "imgs/actions/lifx/key-on",
 					"TitleAlignment": "bottom"

@@ -81,10 +81,14 @@ Adjusts a light property by a relative delta (`+/-`). Works on both standard **K
 ---
 
 ### 4. LIFX: Activate Scene
-**UUID:** `dev.codingcat.streamdeck.lifx-activate-scene` | **API:** `PUT /v1/scenes/scene_id::uuid/activate`
+**UUID:** `dev.codingcat.streamdeck.lifx-activate-scene` | **API:** `PUT /v1/scenes/scene_id::uuid/activate` & `PUT /v1/lights/states`
 
-Activates any scene saved in your LIFX Cloud account.
-- **Scene:** Dynamically populated dropdown of all scenes in your LIFX account (with state counts).
+Activates or toggles one or more scenes saved in your LIFX Cloud account.
+- **Mode:**
+  - `Toggle Scene(s) On / Off` (Default): First press activates all checked scenes and switches the key icon to **On** (glowing yellow). Second press turns **off** every light belonging to the checked scenes and switches the key icon to **Off**.
+  - `Activate Scene(s) (Always On)`: Always activates all checked scenes.
+  - `Turn Off Lights in Scene(s)`: Turns off all lights belonging to the checked scenes.
+- **Scenes:** Multi-select checkbox list of all scenes in your LIFX account (with state counts).
 - **Duration (s):** Transition duration in seconds (`0`–`15s`).
 - **Ignore Options:** Optionally ignore `Power`, `Brightness`, or `Color` from the scene so only the remaining attributes are applied.
 - **Fast Mode:** Skip state verification for lower latency.

@@ -12,8 +12,16 @@
         <sdpi-password setting="apiToken" global placeholder="LIFX Token (cloud.lifx.com/access_tokens)"></sdpi-password>
     </sdpi-item>
 
-    <sdpi-item label="Scene">
-        <sdpi-select setting="sceneUuid" datasource="getScenes" loading="Loading LIFX scenes..." show-refresh hot-reload></sdpi-select>
+    <sdpi-item label="Mode">
+        <sdpi-select setting="sceneMode" default="toggle">
+            <option value="toggle">Toggle Scene(s) On / Off</option>
+            <option value="activate">Activate Scene(s) (Always On)</option>
+            <option value="off">Turn Off Lights in Scene(s)</option>
+        </sdpi-select>
+    </sdpi-item>
+
+    <sdpi-item label="Scenes">
+        <sdpi-checkbox-list setting="sceneUuids" datasource="getScenes" loading="Loading LIFX scenes..." show-refresh hot-reload></sdpi-checkbox-list>
     </sdpi-item>
 
     <sdpi-item label="Duration (s)">

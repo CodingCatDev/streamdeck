@@ -7,8 +7,8 @@ import {
 	type TouchTapEvent,
 	type WillAppearEvent,
 } from "@elgato/streamdeck";
-import { lifxClient } from "../client";
-import type { LifxStateDeltaPayload } from "../types";
+import { lifxClient } from "../lifx/client";
+import type { LifxStateDeltaPayload } from "../lifx/types";
 import { BaseLifxAction } from "./base-lifx-action";
 
 export type DeltaProperty = "brightness" | "kelvin" | "hue" | "saturation" | "infrared";
@@ -25,7 +25,7 @@ export type StateDeltaSettings = {
  * Adjusts LIFX light properties relatively (`POST /v1/lights/:selector/state/delta`).
  * Supports both Keypad buttons (step up/down on press) and Stream Deck+ Rotary Dials (rotate to adjust, press/tap to toggle).
  */
-@action({ UUID: "dev.codingcat.streamdeck.lifx-state-delta" })
+@action({ UUID: "dev.codingcat.lifx.state-delta" })
 export class StateDeltaAction extends BaseLifxAction<StateDeltaSettings> {
 	override async onWillAppear(ev: WillAppearEvent<StateDeltaSettings>): Promise<void> {
 		await this.updateDialFeedback(ev.action, ev.payload.settings);

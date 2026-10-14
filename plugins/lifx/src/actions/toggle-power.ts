@@ -4,7 +4,7 @@ import {
 	type KeyDownEvent,
 	type WillAppearEvent,
 } from "@elgato/streamdeck";
-import { lifxClient } from "../client";
+import { lifxClient } from "../lifx/client";
 import { BaseLifxAction } from "./base-lifx-action";
 
 export type TogglePowerSettings = {
@@ -16,7 +16,7 @@ export type TogglePowerSettings = {
 /**
  * Toggles power or explicitly turns LIFX lights On / Off (`POST /v1/lights/:selector/toggle` or `PUT /v1/lights/:selector/state`).
  */
-@action({ UUID: "dev.codingcat.streamdeck.lifx-toggle" })
+@action({ UUID: "dev.codingcat.lifx.toggle" })
 export class TogglePowerAction extends BaseLifxAction<TogglePowerSettings> {
 	override async onWillAppear(ev: WillAppearEvent<TogglePowerSettings>): Promise<void> {
 		await this.updateButtonState(ev.action, ev.payload.settings);

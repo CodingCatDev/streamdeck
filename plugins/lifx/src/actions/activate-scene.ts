@@ -4,8 +4,8 @@ import {
 	type KeyDownEvent,
 	type WillAppearEvent,
 } from "@elgato/streamdeck";
-import { lifxClient } from "../client";
-import type { LifxActivateScenePayload } from "../types";
+import { lifxClient } from "../lifx/client";
+import type { LifxActivateScenePayload } from "../lifx/types";
 import { BaseLifxAction } from "./base-lifx-action";
 
 export type SceneMode = "toggle" | "activate" | "off";
@@ -26,7 +26,7 @@ export type ActivateSceneSettings = {
  * Activates or toggles one or more saved LIFX Cloud scenes (`PUT /v1/scenes/scene_id::scene_uuid/activate`)
  * and can turn off all lights belonging to those scenes on the second press (`PUT /v1/lights/states`).
  */
-@action({ UUID: "dev.codingcat.streamdeck.lifx-activate-scene" })
+@action({ UUID: "dev.codingcat.lifx.activate-scene" })
 export class ActivateSceneAction extends BaseLifxAction<ActivateSceneSettings> {
 	override async onWillAppear(ev: WillAppearEvent<ActivateSceneSettings>): Promise<void> {
 		await this.syncVisualState(ev.action, ev.payload.settings);

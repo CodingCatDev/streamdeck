@@ -1,11 +1,11 @@
 {
-	"Name": "CodingCat.dev",
+	"Name": "LIFX",
 	"Version": "0.1.0.0",
 	"Author": "Alex Patterson",
 	"Actions": [
 		{
-			"Name": "LIFX: Toggle Power",
-			"UUID": "dev.codingcat.streamdeck.lifx-toggle",
+			"Name": "Toggle Power",
+			"UUID": "dev.codingcat.lifx.toggle",
 			"Icon": "imgs/actions/lifx/icon",
 			"Tooltip": "Toggle power or turn LIFX lights, groups, or locations On/Off.",
 			"PropertyInspectorPath": "ui/toggle-power.html",
@@ -25,8 +25,8 @@
 			]
 		},
 		{
-			"Name": "LIFX: Set Light State",
-			"UUID": "dev.codingcat.streamdeck.lifx-set-state",
+			"Name": "Set Light State",
+			"UUID": "dev.codingcat.lifx.set-state",
 			"Icon": "imgs/actions/lifx/icon",
 			"Tooltip": "Set LIFX light power, color, Kelvin temperature, brightness, and infrared.",
 			"PropertyInspectorPath": "ui/set-state.html",
@@ -41,8 +41,8 @@
 			]
 		},
 		{
-			"Name": "LIFX: Adjust Light (Delta / Dial)",
-			"UUID": "dev.codingcat.streamdeck.lifx-state-delta",
+			"Name": "Adjust Light (Delta / Dial)",
+			"UUID": "dev.codingcat.lifx.state-delta",
 			"Icon": "imgs/actions/lifx/icon",
 			"Tooltip": "Adjust brightness, Kelvin, hue, saturation, or infrared via Keypad button or Stream Deck+ rotary dial.",
 			"PropertyInspectorPath": "ui/state-delta.html",
@@ -66,8 +66,8 @@
 			]
 		},
 		{
-			"Name": "LIFX: Activate Scene",
-			"UUID": "dev.codingcat.streamdeck.lifx-activate-scene",
+			"Name": "Activate Scene",
+			"UUID": "dev.codingcat.lifx.activate-scene",
 			"Icon": "imgs/actions/lifx/icon",
 			"Tooltip": "Activate or toggle one or more saved LIFX Cloud scenes On/Off.",
 			"PropertyInspectorPath": "ui/activate-scene.html",
@@ -87,8 +87,8 @@
 			]
 		},
 		{
-			"Name": "LIFX: Light Effects",
-			"UUID": "dev.codingcat.streamdeck.lifx-effects",
+			"Name": "Light Effects",
+			"UUID": "dev.codingcat.lifx.effects",
 			"Icon": "imgs/actions/lifx/icon",
 			"Tooltip": "Run LIFX effects (Breathe, Pulse, Move, Morph, Flame, Clouds, Sunrise, Sunset) or stop active effects.",
 			"PropertyInspectorPath": "ui/light-effects.html",
@@ -103,8 +103,8 @@
 			]
 		},
 		{
-			"Name": "LIFX: Cycle States",
-			"UUID": "dev.codingcat.streamdeck.lifx-cycle",
+			"Name": "Cycle States",
+			"UUID": "dev.codingcat.lifx.cycle",
 			"Icon": "imgs/actions/lifx/icon",
 			"Tooltip": "Cycle through a list of color, Kelvin, or brightness states on each press.",
 			"PropertyInspectorPath": "ui/cycle-states.html",
@@ -119,8 +119,8 @@
 			]
 		},
 		{
-			"Name": "LIFX: HEV Clean",
-			"UUID": "dev.codingcat.streamdeck.lifx-clean",
+			"Name": "HEV Clean",
+			"UUID": "dev.codingcat.lifx.clean",
 			"Icon": "imgs/actions/lifx/icon",
 			"Tooltip": "Start or stop an antibacterial HEV Clean cycle on compatible LIFX Clean bulbs.",
 			"PropertyInspectorPath": "ui/clean-light.html",
@@ -135,10 +135,10 @@
 			]
 		}
 	],
-	"Category": "CodingCat.dev",
+	"Category": "LIFX",
 	"CategoryIcon": "imgs/plugin/category-icon",
 	"CodePath": "bin/plugin.js",
-	"Description": "CodingCat.dev's Stream Deck setup and integrations.",
+	"Description": "Control LIFX smart lights, groups, locations, scenes, and effects from your Stream Deck.",
 	"Icon": "imgs/plugin/marketplace",
 	"SDKVersion": 3,
 	"Software": {
@@ -158,5 +158,5 @@
 		"Version": "20",
 		"Debug": "enabled"
 	},
-	"UUID": "dev.codingcat.streamdeck"
+	"UUID": "dev.codingcat.lifx"
 }

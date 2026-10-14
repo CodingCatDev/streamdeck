@@ -1,5 +1,5 @@
 import { action, type KeyDownEvent } from "@elgato/streamdeck";
-import { lifxClient } from "../client";
+import { lifxClient } from "../lifx/client";
 import { BaseLifxAction } from "./base-lifx-action";
 
 export type CleanLightSettings = {
@@ -11,7 +11,7 @@ export type CleanLightSettings = {
 /**
  * Starts or stops a High-Energy Visible (HEV) antibacterial cleaning cycle on LIFX Clean bulbs (`POST /v1/lights/:selector/clean`).
  */
-@action({ UUID: "dev.codingcat.streamdeck.lifx-clean" })
+@action({ UUID: "dev.codingcat.lifx.clean" })
 export class CleanLightAction extends BaseLifxAction<CleanLightSettings> {
 	override async onKeyDown(ev: KeyDownEvent<CleanLightSettings>): Promise<void> {
 		const hasToken = await this.ensureClientReady();

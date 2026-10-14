@@ -1,14 +1,14 @@
 import streamDeck from "@elgato/streamdeck";
 
-import { ActivateSceneAction } from "./plugins/lifx/actions/activate-scene";
-import { CleanLightAction } from "./plugins/lifx/actions/clean-light";
-import { CycleStatesAction } from "./plugins/lifx/actions/cycle-states";
-import { LightEffectsAction } from "./plugins/lifx/actions/light-effects";
-import { SetStateAction } from "./plugins/lifx/actions/set-state";
-import { StateDeltaAction } from "./plugins/lifx/actions/state-delta";
-import { TogglePowerAction } from "./plugins/lifx/actions/toggle-power";
-import { lifxClient } from "./plugins/lifx/client";
-import type { LifxGlobalSettings } from "./plugins/lifx/types";
+import { ActivateSceneAction } from "./actions/activate-scene";
+import { CleanLightAction } from "./actions/clean-light";
+import { CycleStatesAction } from "./actions/cycle-states";
+import { LightEffectsAction } from "./actions/light-effects";
+import { SetStateAction } from "./actions/set-state";
+import { StateDeltaAction } from "./actions/state-delta";
+import { TogglePowerAction } from "./actions/toggle-power";
+import { lifxClient } from "./lifx/client";
+import type { LifxGlobalSettings } from "./lifx/types";
 
 streamDeck.logger.setLevel("info");
 

@@ -1,6 +1,6 @@
 import { action, type KeyDownEvent } from "@elgato/streamdeck";
-import { lifxClient } from "../client";
-import type { LifxStatePayload } from "../types";
+import { lifxClient } from "../lifx/client";
+import type { LifxStatePayload } from "../lifx/types";
 import { BaseLifxAction } from "./base-lifx-action";
 
 export type CycleStatesSettings = {
@@ -15,7 +15,7 @@ const DEFAULT_STATES_LIST = "red, green, blue, kelvin:2700, kelvin:6500";
 /**
  * Cycles a light or group through a list of color/state presets (`POST /v1/lights/:selector/cycle`).
  */
-@action({ UUID: "dev.codingcat.streamdeck.lifx-cycle" })
+@action({ UUID: "dev.codingcat.lifx.cycle" })
 export class CycleStatesAction extends BaseLifxAction<CycleStatesSettings> {
 	override async onKeyDown(ev: KeyDownEvent<CycleStatesSettings>): Promise<void> {
 		const hasToken = await this.ensureClientReady();

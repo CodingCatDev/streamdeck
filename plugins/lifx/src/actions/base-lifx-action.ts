@@ -5,14 +5,14 @@ import {
 	SingletonAction,
 	streamDeck,
 } from "@elgato/streamdeck";
-import { lifxClient } from "../client";
+import { lifxClient } from "../lifx/client";
 import type {
 	DataSourceGroup,
 	DataSourceNode,
 	JsonObject,
 	JsonValue,
 	LifxGlobalSettings,
-} from "../types";
+} from "../lifx/types";
 
 type DataSourcePayload = {
 	event?: string;

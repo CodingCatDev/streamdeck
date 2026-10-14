@@ -1,9 +1,10 @@
-# LIFX Integration (`src/plugins/lifx`)
+# LIFX — Stream Deck Plugin (`plugins/lifx`)
 
 Control your **LIFX** smart lights, groups, locations, cloud scenes, effects, and HEV Clean bulbs directly from your Elgato Stream Deck keys and Stream Deck+ rotary dials using the **LIFX HTTP Cloud API v1**.
 
-- **Plugin UUID:** `dev.codingcat.streamdeck`
-- **Category:** `CodingCat.dev`
+- **Plugin Name:** `LIFX`
+- **Stream Deck ID (`UUID`):** `dev.codingcat.lifx`
+- **Category:** `LIFX`
 - **Supported Controllers:** `Keypad` (all Stream Deck models) & `Encoder` (Stream Deck+ rotary dials & touch strip)
 
 ---
@@ -12,29 +13,29 @@ Control your **LIFX** smart lights, groups, locations, cloud scenes, effects, an
 
 1. Sign in to your LIFX Cloud account at **[https://cloud.lifx.com/access_tokens](https://cloud.lifx.com/access_tokens)**.
 2. Click **Generate New Token**, give it a label (e.g., `Stream Deck`), and copy the token.
-3. In the Elgato Stream Deck app, open the **CodingCat.dev** category in the right sidebar and drag any **LIFX** action onto a key or dial.
+3. In the Elgato Stream Deck app, open the **LIFX** category in the right sidebar and drag any action onto a key or dial.
 4. Paste your token into the **API Token** field in the Property Inspector at the bottom of the Stream Deck window.
    - *Note:* The **API Token** is saved in Stream Deck **Global Settings**, so you only need to paste it once—it is shared automatically across all LIFX actions.
-5. Click the **Refresh (↻)** button next to the **Target** (or **Scene**) dropdown to load your lights, groups, locations, and scenes.
+5. Click the **Refresh (↻)** button next to the **Target** (or **Scenes**) list to load your lights, groups, locations, and scenes.
 
 ---
 
-## 🎛️ LIFX Action Directory
+## 🎛️ Action Directory
 
 | Action Name | UUID | Controllers | Summary |
 | :--- | :--- | :--- | :--- |
-| **[1. LIFX: Toggle Power](#1-lifx-toggle-power)** | `dev.codingcat.streamdeck.lifx-toggle` | Keypad | Toggle power or explicitly turn lights, groups, or locations On/Off. |
-| **[2. LIFX: Set Light State](#2-lifx-set-light-state)** | `dev.codingcat.streamdeck.lifx-set-state` | Keypad | Set power, color (hex picker, Kelvin white temperature, or custom string), brightness, and infrared. |
-| **[3. LIFX: Adjust Light (Delta / Dial)](#3-lifx-adjust-light-delta--dial)** | `dev.codingcat.streamdeck.lifx-state-delta` | Keypad, Encoder | Step brightness, Kelvin, hue, saturation, or infrared up/down via button press or Stream Deck+ rotary dial. |
-| **[4. LIFX: Activate Scene](#4-lifx-activate-scene)** | `dev.codingcat.streamdeck.lifx-activate-scene` | Keypad | Activate any saved scene from your LIFX Cloud account. |
-| **[5. LIFX: Light Effects](#5-lifx-light-effects)** | `dev.codingcat.streamdeck.lifx-effects` | Keypad | Trigger Breathe, Pulse, Move, Morph, Flame, Clouds, Sunrise, Sunset, or stop active effects. |
-| **[6. LIFX: Cycle States](#6-lifx-cycle-states)** | `dev.codingcat.streamdeck.lifx-cycle` | Keypad | Cycle a light or group through a list of color/Kelvin presets on each button press. |
-| **[7. LIFX: HEV Clean](#7-lifx-hev-clean)** | `dev.codingcat.streamdeck.lifx-clean` | Keypad | Start or stop an antibacterial HEV Clean cycle on compatible LIFX Clean bulbs. |
+| **[1. Toggle Power](#1-toggle-power)** | `dev.codingcat.lifx.toggle` | Keypad | Toggle power or explicitly turn lights, groups, or locations On/Off. |
+| **[2. Set Light State](#2-set-light-state)** | `dev.codingcat.lifx.set-state` | Keypad | Set power, color (hex picker, Kelvin white temperature, or custom string), brightness, and infrared. |
+| **[3. Adjust Light (Delta / Dial)](#3-adjust-light-delta--dial)** | `dev.codingcat.lifx.state-delta` | Keypad, Encoder | Step brightness, Kelvin, hue, saturation, or infrared up/down via button press or Stream Deck+ rotary dial. |
+| **[4. Activate Scene](#4-activate-scene)** | `dev.codingcat.lifx.activate-scene` | Keypad | Activate or toggle one or more saved LIFX Cloud scenes On/Off. |
+| **[5. Light Effects](#5-light-effects)** | `dev.codingcat.lifx.effects` | Keypad | Trigger Breathe, Pulse, Move, Morph, Flame, Clouds, Sunrise, Sunset, or stop active effects. |
+| **[6. Cycle States](#6-cycle-states)** | `dev.codingcat.lifx.cycle` | Keypad | Cycle a light or group through a list of color/Kelvin presets on each button press. |
+| **[7. HEV Clean](#7-hev-clean)** | `dev.codingcat.lifx.clean` | Keypad | Start or stop an antibacterial HEV Clean cycle on compatible LIFX Clean bulbs. |
 
 ---
 
-### 1. LIFX: Toggle Power
-**UUID:** `dev.codingcat.streamdeck.lifx-toggle` | **API:** `POST /v1/lights/:selector/toggle` & `PUT /v1/lights/:selector/state`
+### 1. Toggle Power
+**UUID:** `dev.codingcat.lifx.toggle` | **API:** `POST /v1/lights/:selector/toggle` & `PUT /v1/lights/:selector/state`
 
 Toggles power or forces lights On or Off for any target selector (`All Lights`, a `Location`, a `Group`, or an individual `Light`).
 - **Target:** Select `All Lights`, a Location, a Group, or a specific Light.
@@ -47,8 +48,8 @@ Toggles power or forces lights On or Off for any target selector (`All Lights`, 
 
 ---
 
-### 2. LIFX: Set Light State
-**UUID:** `dev.codingcat.streamdeck.lifx-set-state` | **API:** `PUT /v1/lights/:selector/state`
+### 2. Set Light State
+**UUID:** `dev.codingcat.lifx.set-state` | **API:** `PUT /v1/lights/:selector/state`
 
 Applies a complete light state in a single button press.
 - **Target:** `All Lights`, Location, Group, or individual Light.
@@ -64,8 +65,8 @@ Applies a complete light state in a single button press.
 
 ---
 
-### 3. LIFX: Adjust Light (Delta / Dial)
-**UUID:** `dev.codingcat.streamdeck.lifx-state-delta` | **API:** `POST /v1/lights/:selector/state/delta`
+### 3. Adjust Light (Delta / Dial)
+**UUID:** `dev.codingcat.lifx.state-delta` | **API:** `POST /v1/lights/:selector/state/delta`
 
 Adjusts a light property by a relative delta (`+/-`). Works on both standard **Keypad** buttons and **Stream Deck+ Rotary Dials (Encoders)**.
 - **Property:**
@@ -80,8 +81,8 @@ Adjusts a light property by a relative delta (`+/-`). Works on both standard **K
 
 ---
 
-### 4. LIFX: Activate Scene
-**UUID:** `dev.codingcat.streamdeck.lifx-activate-scene` | **API:** `PUT /v1/scenes/scene_id::uuid/activate` & `PUT /v1/lights/states`
+### 4. Activate Scene
+**UUID:** `dev.codingcat.lifx.activate-scene` | **API:** `PUT /v1/scenes/scene_id::uuid/activate` & `PUT /v1/lights/states`
 
 Activates or toggles one or more scenes saved in your LIFX Cloud account.
 - **Mode:**
@@ -95,8 +96,8 @@ Activates or toggles one or more scenes saved in your LIFX Cloud account.
 
 ---
 
-### 5. LIFX: Light Effects
-**UUID:** `dev.codingcat.streamdeck.lifx-effects` | **API:** `POST /v1/lights/:selector/effects/*`
+### 5. Light Effects
+**UUID:** `dev.codingcat.lifx.effects` | **API:** `POST /v1/lights/:selector/effects/*`
 
 Starts or stops dynamic LIFX effects:
 - **`Breathe`:** Smoothly fades between `Primary Color` and `From Color` over `Period (s)` for `Cycles` repetitions.
@@ -110,8 +111,8 @@ Starts or stops dynamic LIFX effects:
 
 ---
 
-### 6. LIFX: Cycle States
-**UUID:** `dev.codingcat.streamdeck.lifx-cycle` | **API:** `POST /v1/lights/:selector/cycle`
+### 6. Cycle States
+**UUID:** `dev.codingcat.lifx.cycle` | **API:** `POST /v1/lights/:selector/cycle`
 
 Advances the target light(s) to the next state in a list each time you press the key.
 - **States to Cycle:** Provide either:
@@ -122,9 +123,35 @@ Advances the target light(s) to the next state in a list each time you press the
 
 ---
 
-### 7. LIFX: HEV Clean
-**UUID:** `dev.codingcat.streamdeck.lifx-clean` | **API:** `POST /v1/lights/:selector/clean`
+### 7. HEV Clean
+**UUID:** `dev.codingcat.lifx.clean` | **API:** `POST /v1/lights/:selector/clean`
 
 Controls High-Energy Visible (HEV) antibacterial cleaning cycles on compatible **LIFX Clean** bulbs.
 - **Clean Action:** `Start HEV Clean Cycle` or `Stop HEV Clean Cycle`.
 - **Duration (s):** Duration in seconds (default `3600` = 1 hour).
+
+---
+
+## 💻 Local Development & Packaging
+
+From `plugins/lifx` (or from the repository root using `pnpm --filter @codingcatdev/streamdeck-lifx`):
+
+```bash
+# Typecheck
+pnpm run typecheck
+
+# Build production bundle (dev.codingcat.lifx.sdPlugin/bin/plugin.js)
+pnpm run build
+
+# Validate plugin manifest and assets
+pnpm run validate
+
+# Link to local Stream Deck and restart
+pnpm run link
+
+# Watch for changes and auto-restart in Stream Deck
+pnpm run watch
+
+# Create distributable dev.codingcat.lifx.streamDeckPlugin package
+pnpm run pack
+```

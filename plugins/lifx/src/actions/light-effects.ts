@@ -1,5 +1,5 @@
 import { action, type KeyDownEvent } from "@elgato/streamdeck";
-import { lifxClient } from "../client";
+import { lifxClient } from "../lifx/client";
 import { BaseLifxAction } from "./base-lifx-action";
 
 export type LifxEffectType =
@@ -33,7 +33,7 @@ export type LightEffectsSettings = {
 /**
  * Triggers or stops LIFX effects (`breathe`, `pulse`, `move`, `morph`, `flame`, `clouds`, `sunrise`, `sunset`, `off`).
  */
-@action({ UUID: "dev.codingcat.streamdeck.lifx-effects" })
+@action({ UUID: "dev.codingcat.lifx.effects" })
 export class LightEffectsAction extends BaseLifxAction<LightEffectsSettings> {
 	override async onKeyDown(ev: KeyDownEvent<LightEffectsSettings>): Promise<void> {
 		const hasToken = await this.ensureClientReady();

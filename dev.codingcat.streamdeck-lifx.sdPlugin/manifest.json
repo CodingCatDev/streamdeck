@@ -1,0 +1,156 @@
+{
+	"Name": "CodingCat.dev LIFX",
+	"Version": "0.1.0.0",
+	"Author": "Alex Patterson",
+	"Actions": [
+		{
+			"Name": "Toggle Power",
+			"UUID": "dev.codingcat.streamdeck-lifx.toggle",
+			"Icon": "imgs/actions/lifx/icon",
+			"Tooltip": "Toggle power or turn LIFX lights, groups, or locations On/Off.",
+			"PropertyInspectorPath": "ui/toggle-power.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/lifx/key",
+					"TitleAlignment": "bottom"
+				},
+				{
+					"Image": "imgs/actions/lifx/key-on",
+					"TitleAlignment": "bottom"
+				}
+			]
+		},
+		{
+			"Name": "Set Light State",
+			"UUID": "dev.codingcat.streamdeck-lifx.set-state",
+			"Icon": "imgs/actions/lifx/icon",
+			"Tooltip": "Set LIFX light power, color, Kelvin temperature, brightness, and infrared.",
+			"PropertyInspectorPath": "ui/set-state.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/lifx/key-on",
+					"TitleAlignment": "bottom"
+				}
+			]
+		},
+		{
+			"Name": "Adjust Light (Delta / Dial)",
+			"UUID": "dev.codingcat.streamdeck-lifx.state-delta",
+			"Icon": "imgs/actions/lifx/icon",
+			"Tooltip": "Adjust brightness, Kelvin, hue, saturation, or infrared via Keypad button or Stream Deck+ rotary dial.",
+			"PropertyInspectorPath": "ui/state-delta.html",
+			"Controllers": [
+				"Keypad",
+				"Encoder"
+			],
+			"Encoder": {
+				"layout": "$B1",
+				"TriggerDescription": {
+					"Rotate": "Adjust Light",
+					"Push": "Toggle Power",
+					"Touch": "Toggle Power"
+				}
+			},
+			"States": [
+				{
+					"Image": "imgs/actions/lifx/key",
+					"TitleAlignment": "bottom"
+				}
+			]
+		},
+		{
+			"Name": "Activate Scene",
+			"UUID": "dev.codingcat.streamdeck-lifx.activate-scene",
+			"Icon": "imgs/actions/lifx/icon",
+			"Tooltip": "Activate a saved LIFX Cloud scene.",
+			"PropertyInspectorPath": "ui/activate-scene.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/lifx/key-on",
+					"TitleAlignment": "bottom"
+				}
+			]
+		},
+		{
+			"Name": "Light Effects",
+			"UUID": "dev.codingcat.streamdeck-lifx.effects",
+			"Icon": "imgs/actions/lifx/icon",
+			"Tooltip": "Run LIFX effects (Breathe, Pulse, Move, Morph, Flame, Clouds, Sunrise, Sunset) or stop active effects.",
+			"PropertyInspectorPath": "ui/light-effects.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/lifx/key-on",
+					"TitleAlignment": "bottom"
+				}
+			]
+		},
+		{
+			"Name": "Cycle States",
+			"UUID": "dev.codingcat.streamdeck-lifx.cycle",
+			"Icon": "imgs/actions/lifx/icon",
+			"Tooltip": "Cycle through a list of color, Kelvin, or brightness states on each press.",
+			"PropertyInspectorPath": "ui/cycle-states.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/lifx/key",
+					"TitleAlignment": "bottom"
+				}
+			]
+		},
+		{
+			"Name": "HEV Clean",
+			"UUID": "dev.codingcat.streamdeck-lifx.clean",
+			"Icon": "imgs/actions/lifx/icon",
+			"Tooltip": "Start or stop an antibacterial HEV Clean cycle on compatible LIFX Clean bulbs.",
+			"PropertyInspectorPath": "ui/clean-light.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/lifx/key",
+					"TitleAlignment": "bottom"
+				}
+			]
+		}
+	],
+	"Category": "CodingCat.dev LIFX",
+	"CategoryIcon": "imgs/plugin/category-icon",
+	"CodePath": "bin/plugin.js",
+	"Description": "Control LIFX smart lights, groups, locations, scenes, and effects from your Stream Deck.",
+	"Icon": "imgs/plugin/marketplace",
+	"SDKVersion": 3,
+	"Software": {
+		"MinimumVersion": "7.1"
+	},
+	"OS": [
+		{
+			"Platform": "mac",
+			"MinimumVersion": "12"
+		},
+		{
+			"Platform": "windows",
+			"MinimumVersion": "10"
+		}
+	],
+	"Nodejs": {
+		"Version": "20",
+		"Debug": "enabled"
+	},
+	"UUID": "dev.codingcat.streamdeck-lifx"
+}

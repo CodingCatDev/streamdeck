@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <title>LIFX Set State Settings</title>
+    <meta charset="utf-8" />
+    <script src="https://sdpi-components.dev/releases/v4/sdpi-components.js"></script>
+</head>
+
+<body>
+    <sdpi-item label="API Token">
+        <sdpi-password setting="apiToken" global placeholder="LIFX Token (cloud.lifx.com/access_tokens)"></sdpi-password>
+    </sdpi-item>
+
+    <sdpi-item label="Target">
+        <sdpi-select setting="selector" datasource="getSelectors" loading="Loading LIFX lights..." show-refresh hot-reload default="all"></sdpi-select>
+    </sdpi-item>
+
+    <sdpi-item label="Power">
+        <sdpi-select setting="power" default="on">
+            <option value="on">On</option>
+            <option value="off">Off</option>
+            <option value="unchanged">Unchanged</option>
+        </sdpi-select>
+    </sdpi-item>
+
+    <sdpi-item label="Color Mode">
+        <sdpi-select setting="colorMode" default="hex">
+            <option value="hex">Color Picker (Hex)</option>
+            <option value="kelvin">White Temperature (Kelvin)</option>
+            <option value="custom">Custom LIFX Color String</option>
+            <option value="none">Keep Current Color</option>
+        </sdpi-select>
+    </sdpi-item>
+
+    <sdpi-item label="Color">
+        <sdpi-color setting="colorHex" default="#ff6600"></sdpi-color>
+    </sdpi-item>
+
+    <sdpi-item label="Kelvin (K)">
+        <sdpi-range setting="kelvin" min="1500" max="9000" step="100" default="3500" showlabels></sdpi-range>
+    </sdpi-item>
+
+    <sdpi-item label="Custom Color">
+        <sdpi-textfield setting="customColor" placeholder="e.g. hue:120 saturation:1.0 or kelvin:4000"></sdpi-textfield>
+    </sdpi-item>
+
+    <sdpi-item label="Set Brightness">
+        <sdpi-checkbox setting="enableBrightness" default="true" label="Apply Brightness"></sdpi-checkbox>
+    </sdpi-item>
+
+    <sdpi-item label="Brightness (%)">
+        <sdpi-range setting="brightness" min="0" max="100" step="1" default="100" showlabels></sdpi-range>
+    </sdpi-item>
+
+    <sdpi-item label="Set Infrared">
+        <sdpi-checkbox setting="enableInfrared" label="Apply Infrared (Night Vision bulbs)"></sdpi-checkbox>
+    </sdpi-item>
+
+    <sdpi-item label="Infrared (%)">
+        <sdpi-range setting="infrared" min="0" max="100" step="5" default="0" showlabels></sdpi-range>
+    </sdpi-item>
+
+    <sdpi-item label="Duration (s)">
+        <sdpi-range setting="duration" min="0" max="10" step="0.5" default="1" showlabels></sdpi-range>
+    </sdpi-item>
+
+    <sdpi-item label="Fast Mode">
+        <sdpi-checkbox setting="fast" label="Skip state verification for faster execution"></sdpi-checkbox>
+    </sdpi-item>
+</body>
+
+</html>

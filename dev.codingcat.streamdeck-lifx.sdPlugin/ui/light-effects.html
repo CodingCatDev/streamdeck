@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <title>LIFX Light Effects Settings</title>
+    <meta charset="utf-8" />
+    <script src="https://sdpi-components.dev/releases/v4/sdpi-components.js"></script>
+</head>
+
+<body>
+    <sdpi-item label="API Token">
+        <sdpi-password setting="apiToken" global placeholder="LIFX Token (cloud.lifx.com/access_tokens)"></sdpi-password>
+    </sdpi-item>
+
+    <sdpi-item label="Target">
+        <sdpi-select setting="selector" datasource="getSelectors" loading="Loading LIFX lights..." show-refresh hot-reload default="all"></sdpi-select>
+    </sdpi-item>
+
+    <sdpi-item label="Effect">
+        <sdpi-select setting="effectType" default="breathe">
+            <option value="breathe">Breathe (Smooth Fade)</option>
+            <option value="pulse">Pulse (Flash)</option>
+            <option value="move">Move (Z Strip / Beam Multizone)</option>
+            <option value="morph">Morph (Tile / Candle / Ceiling Matrix)</option>
+            <option value="flame">Flame (Tile / Candle Matrix)</option>
+            <option value="clouds">Clouds (Ceiling / Luna Matrix)</option>
+            <option value="sunrise">Sunrise (Matrix)</option>
+            <option value="sunset">Sunset (Matrix)</option>
+            <option value="off">Stop Active Effects (Off)</option>
+        </sdpi-select>
+    </sdpi-item>
+
+    <sdpi-item label="Primary Color">
+        <sdpi-color setting="color" default="#ff0055"></sdpi-color>
+    </sdpi-item>
+
+    <sdpi-item label="From Color">
+        <sdpi-textfield setting="fromColor" placeholder="Optional starting color (e.g. #0055ff)"></sdpi-textfield>
+    </sdpi-item>
+
+    <sdpi-item label="Period (s)">
+        <sdpi-range setting="period" min="0.2" max="10" step="0.2" default="2" showlabels></sdpi-range>
+    </sdpi-item>
+
+    <sdpi-item label="Cycles">
+        <sdpi-range setting="cycles" min="1" max="30" step="1" default="5" showlabels></sdpi-range>
+    </sdpi-item>
+
+    <sdpi-item label="Duration (s)">
+        <sdpi-textfield setting="duration" default="30" placeholder="Duration in seconds (Morph/Flame/Clouds/Sun)"></sdpi-textfield>
+    </sdpi-item>
+
+    <sdpi-item label="Move Direction">
+        <sdpi-select setting="direction" default="forward">
+            <option value="forward">Forward</option>
+            <option value="backward">Backward</option>
+        </sdpi-select>
+    </sdpi-item>
+
+    <sdpi-item label="Morph Palette">
+        <sdpi-textfield setting="palette" placeholder="Comma-separated colors (e.g. red, blue, purple)"></sdpi-textfield>
+    </sdpi-item>
+
+    <sdpi-item label="Options">
+        <sdpi-checkbox setting="powerOn" default="true" label="Power on lights if currently off"></sdpi-checkbox>
+        <sdpi-checkbox setting="persist" label="Persist final color when effect finishes"></sdpi-checkbox>
+        <sdpi-checkbox setting="powerOff" label="Power off lights when stopping effects"></sdpi-checkbox>
+    </sdpi-item>
+</body>
+
+</html>

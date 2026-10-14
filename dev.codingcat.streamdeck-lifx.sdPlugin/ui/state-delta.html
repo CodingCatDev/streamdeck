@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <title>LIFX Adjust State Delta Settings</title>
+    <meta charset="utf-8" />
+    <script src="https://sdpi-components.dev/releases/v4/sdpi-components.js"></script>
+</head>
+
+<body>
+    <sdpi-item label="API Token">
+        <sdpi-password setting="apiToken" global placeholder="LIFX Token (cloud.lifx.com/access_tokens)"></sdpi-password>
+    </sdpi-item>
+
+    <sdpi-item label="Target">
+        <sdpi-select setting="selector" datasource="getSelectors" loading="Loading LIFX lights..." show-refresh hot-reload default="all"></sdpi-select>
+    </sdpi-item>
+
+    <sdpi-item label="Property">
+        <sdpi-select setting="property" default="brightness">
+            <option value="brightness">Brightness (%)</option>
+            <option value="kelvin">Color Temperature (Kelvin)</option>
+            <option value="hue">Hue (°)</option>
+            <option value="saturation">Saturation (%)</option>
+            <option value="infrared">Infrared (%)</option>
+        </sdpi-select>
+    </sdpi-item>
+
+    <sdpi-item label="Step / Delta">
+        <sdpi-textfield setting="step" default="10" placeholder="e.g. 10 or -10 (or 300 / -300 for Kelvin)"></sdpi-textfield>
+    </sdpi-item>
+
+    <sdpi-item label="Duration (s)">
+        <sdpi-range setting="duration" min="0" max="5" step="0.2" default="0.4" showlabels></sdpi-range>
+    </sdpi-item>
+
+    <sdpi-item label="Fast Mode">
+        <sdpi-checkbox setting="fast" default="true" label="Fast execution (recommended for dials)"></sdpi-checkbox>
+    </sdpi-item>
+</body>
+
+</html>

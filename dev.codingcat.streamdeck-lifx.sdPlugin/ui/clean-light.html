@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <title>LIFX HEV Clean Settings</title>
+    <meta charset="utf-8" />
+    <script src="https://sdpi-components.dev/releases/v4/sdpi-components.js"></script>
+</head>
+
+<body>
+    <sdpi-item label="API Token">
+        <sdpi-password setting="apiToken" global placeholder="LIFX Token (cloud.lifx.com/access_tokens)"></sdpi-password>
+    </sdpi-item>
+
+    <sdpi-item label="Target">
+        <sdpi-select setting="selector" datasource="getSelectors" loading="Loading LIFX lights..." show-refresh hot-reload default="all"></sdpi-select>
+    </sdpi-item>
+
+    <sdpi-item label="Clean Action">
+        <sdpi-select setting="cleanMode" default="start">
+            <option value="start">Start HEV Clean Cycle</option>
+            <option value="stop">Stop HEV Clean Cycle</option>
+        </sdpi-select>
+    </sdpi-item>
+
+    <sdpi-item label="Duration (s)">
+        <sdpi-textfield setting="duration" default="3600" placeholder="Duration in seconds (0 = default)"></sdpi-textfield>
+    </sdpi-item>
+</body>
+
+</html>

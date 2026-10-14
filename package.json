@@ -1,7 +1,9 @@
 {
     "scripts": {
         "build": "rollup -c",
-        "watch": "rollup -c -w --watch.onEnd=\"streamdeck restart dev.codingcat.streamdeck\""
+        "watch": "rollup -c -w --watch.onEnd=\"streamdeck restart dev.codingcat.streamdeck-lifx\"",
+        "typecheck": "tsc --noEmit",
+        "pack": "pnpm run build && streamdeck pack dev.codingcat.streamdeck-lifx.sdPlugin --force"
     },
     "type": "module",
     "devDependencies": {

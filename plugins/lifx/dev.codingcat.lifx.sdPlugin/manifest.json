@@ -6,7 +6,7 @@
 		{
 			"Name": "Toggle Power",
 			"UUID": "dev.codingcat.lifx.toggle",
-			"Icon": "imgs/actions/lifx/icon",
+			"Icon": "imgs/actions/toggle/icon",
 			"Tooltip": "Toggle power or turn LIFX lights, groups, or locations On/Off.",
 			"PropertyInspectorPath": "ui/toggle-power.html",
 			"DisableAutomaticStates": true,
@@ -27,7 +27,7 @@
 		{
 			"Name": "Set Light State",
 			"UUID": "dev.codingcat.lifx.set-state",
-			"Icon": "imgs/actions/lifx/icon",
+			"Icon": "imgs/actions/set-state/icon",
 			"Tooltip": "Set LIFX light power, color, Kelvin temperature, brightness, and infrared.",
 			"PropertyInspectorPath": "ui/set-state.html",
 			"Controllers": [
@@ -43,7 +43,7 @@
 		{
 			"Name": "Adjust Light (Delta / Dial)",
 			"UUID": "dev.codingcat.lifx.state-delta",
-			"Icon": "imgs/actions/lifx/icon",
+			"Icon": "imgs/actions/state-delta/icon",
 			"Tooltip": "Adjust brightness, Kelvin, hue, saturation, or infrared via Keypad button or Stream Deck+ rotary dial.",
 			"PropertyInspectorPath": "ui/state-delta.html",
 			"Controllers": [
@@ -68,7 +68,7 @@
 		{
 			"Name": "Activate Scene",
 			"UUID": "dev.codingcat.lifx.activate-scene",
-			"Icon": "imgs/actions/lifx/icon",
+			"Icon": "imgs/actions/activate-scene/icon",
 			"Tooltip": "Activate or toggle one or more saved LIFX Cloud scenes On/Off.",
 			"PropertyInspectorPath": "ui/activate-scene.html",
 			"DisableAutomaticStates": true,
@@ -89,7 +89,7 @@
 		{
 			"Name": "Light Effects",
 			"UUID": "dev.codingcat.lifx.effects",
-			"Icon": "imgs/actions/lifx/icon",
+			"Icon": "imgs/actions/effects/icon",
 			"Tooltip": "Run LIFX effects (Breathe, Pulse, Move, Morph, Flame, Clouds, Sunrise, Sunset) or stop active effects.",
 			"PropertyInspectorPath": "ui/light-effects.html",
 			"Controllers": [
@@ -105,7 +105,7 @@
 		{
 			"Name": "Cycle States",
 			"UUID": "dev.codingcat.lifx.cycle",
-			"Icon": "imgs/actions/lifx/icon",
+			"Icon": "imgs/actions/cycle/icon",
 			"Tooltip": "Cycle through a list of color, Kelvin, or brightness states on each press.",
 			"PropertyInspectorPath": "ui/cycle-states.html",
 			"Controllers": [
@@ -121,7 +121,7 @@
 		{
 			"Name": "HEV Clean",
 			"UUID": "dev.codingcat.lifx.clean",
-			"Icon": "imgs/actions/lifx/icon",
+			"Icon": "imgs/actions/clean/icon",
 			"Tooltip": "Start or stop an antibacterial HEV Clean cycle on compatible LIFX Clean bulbs.",
 			"PropertyInspectorPath": "ui/clean-light.html",
 			"Controllers": [
